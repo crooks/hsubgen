@@ -1,0 +1,9 @@
+hsubgen - A program for generating and testing hsub's (Hashed Subjects)
+
+Usage:-
+hsubgen <key>
+Generate a valid hsub using the provided key
+
+hsubgen <key> <subject>
+Validate the subject using key.  A valid hsub will cause the program to
+terminate successfully with exit status 0.
