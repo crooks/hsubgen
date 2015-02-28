@@ -20,7 +20,8 @@ type hsub struct {
 
 func (h *hsub) hsubtest() bool {
 	sublen := len(h.subject)
-	if sublen <= 16 || sublen > 96 {
+	if sublen <= 32 || sublen > 96 {
+		fmt.Println("Error: hsub must be between 32 and 96 chars")
 		os.Exit(2)
 	}
 	iv, err := hex.DecodeString(h.subject[:16])
@@ -62,8 +63,10 @@ func main() {
 		h.key = cmdargs[0]
 		h.subject = cmdargs[1]
 		if ! h.hsubtest() {
+			fmt.Println("Fail: hsub not generated with this key")
 			os.Exit(1)
 		}
+		fmt.Println("Validated: hsub is valid for this key")
 	default:
 		fmt.Println("Usage: hsubtest <key> [subject]")
 		os.Exit(2)
