@@ -18,6 +18,8 @@ type hsub struct {
 	subject string
 }
 
+// hsubtest takes a given key and hsub as input.  It generates a new hsub
+// using the key and IV from supplied hsub and test for a collision.
 func (h *hsub) hsubtest() bool {
 	sublen := len(h.subject)
 	if sublen <= 32 || sublen > 96 {
@@ -38,6 +40,7 @@ func (h *hsub) hsubtest() bool {
 	return false
 }
 
+// hsubgen creates a new hsub using a supplied key.
 func (h *hsub) hsubgen() string {
 	iv := make([]byte, 8)
 	_, err := rand.Read(iv)
@@ -55,10 +58,12 @@ func main() {
 	cmdargs := flag.Args()
 	switch len(cmdargs) {
 	case 1:
+		// One arg provided - Generate a new hsub
 		h := new(hsub)
 		h.key = cmdargs[0]
 		fmt.Println(h.hsubgen())
 	case 2:
+		// Two args provided - Test the hsub against the key
 		h := new(hsub)
 		h.key = cmdargs[0]
 		h.subject = cmdargs[1]
