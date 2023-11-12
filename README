@@ -4,6 +4,10 @@ Usage:-
 hsubgen <key>
 Generate a valid hsub using the provided key
 
+hsubgen [-l int] <key> 
+Generate a valid hsub with a length of 32 to 96 characters.
+The default setting is 48 characters.
+
 hsubgen <key> <subject>
 Validate the subject using key.  A valid hsub will cause the program to
 terminate successfully with exit status 0.
