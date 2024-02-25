@@ -57,8 +57,8 @@ func main() {
 	cmdargs := flag.Args()
 	switch len(cmdargs) {
 	case 1:
-		if hsublen < 32 || hsublen > 96 {
-			fmt.Println("Error: hsub must be between 32 and 96 characters")
+		if hsublen < 32 || hsublen > 80 {
+			fmt.Println("Error: hsub must be between 32 and 80 characters")
 			os.Exit(2)
 		}
 		h := new(hsub)
