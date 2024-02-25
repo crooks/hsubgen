@@ -5,7 +5,7 @@ hsubgen <key>
 Generate a valid hsub using the provided key
 
 hsubgen [-l int] <key> 
-Generate a valid hsub with a length of 32 to 96 characters.
+Generate a valid hsub with a length of 32 to 80 characters.
 The default setting is 48 characters.
 
 hsubgen <key> <subject>
